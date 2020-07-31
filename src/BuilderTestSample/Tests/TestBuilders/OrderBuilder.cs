@@ -10,19 +10,19 @@ namespace BuilderTestSample.Tests.TestBuilders
 	{
 		private Order _order = new Order ();
 
-		public OrderBuilder Id (int id)
+		public OrderBuilder WithId (int id)
 		{
 			_order.Id = id;
 			return this;
 		}
 
-		public OrderBuilder Amount (decimal amount)
+		public OrderBuilder WithAmount (decimal amount)
 		{
 			_order.TotalAmount = amount;
 			return this;
 		}
 
-		public Order Customer (Customer customer)
+		public Order WithCustomer (Customer customer)
 		{
 			_order.Customer = customer;
 			return this;

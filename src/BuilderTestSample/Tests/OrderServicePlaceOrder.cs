@@ -16,7 +16,7 @@ namespace BuilderTestSample.Tests
 		{
 			Order order = _orderBuilder
 							.WithTestValues ()
-							.Id (123);
+							.WithId (123);
 
 			Assert.Throws<InvalidOrderException> (() => _orderService.PlaceOrder (order));
 		}
@@ -26,7 +26,7 @@ namespace BuilderTestSample.Tests
 		{
 			Order order = _orderBuilder
 				.WithTestValues ()
-				.Amount (-1);
+				.WithAmount (-1);
 
 			Assert.Throws<InvalidOrderException> (() => _orderService.PlaceOrder (order));
 		}
@@ -36,7 +36,7 @@ namespace BuilderTestSample.Tests
 		{
 			Order order = _orderBuilder
 				.WithTestValues ()
-				.Amount (0);
+				.WithAmount (0);
 
 			Assert.Throws<InvalidOrderException> (() => _orderService.PlaceOrder (order));
 		}
@@ -46,7 +46,7 @@ namespace BuilderTestSample.Tests
 		{
 			Order order = _orderBuilder
 				.WithTestValues ()
-				.Customer (null);
+				.WithCustomer (null);
 
 			Assert.Throws<InvalidOrderException> (() => _orderService.PlaceOrder (order));
 		}
