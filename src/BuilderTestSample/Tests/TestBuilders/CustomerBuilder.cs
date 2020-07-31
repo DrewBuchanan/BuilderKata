@@ -8,7 +8,7 @@ namespace BuilderTestSample.Tests.TestBuilders
 	public class CustomerBuilder
 	{
 		private Customer _customer;
-		private int id;
+		private int id = 1;
 		private Address address;
 		private string firstName;
 		private string lastName;
@@ -39,8 +39,10 @@ namespace BuilderTestSample.Tests.TestBuilders
 
 		public CustomerBuilder WithTestValues()
 		{
-			_customer = new Customer (1);
-			_customer.HomeAddress = new Address ();
+			id = 1;
+			address = new Address ();
+			firstName = "Drew";
+			lastName = "Buchanan";
 			return this;
 		}
 
