@@ -37,5 +37,10 @@ namespace BuilderTestSample.Tests.TestBuilders
 
 			return this;
 		}
+
+		public static implicit operator Order(OrderBuilder builder)
+		{
+			return builder.Build ();
+		}
 	}
 }

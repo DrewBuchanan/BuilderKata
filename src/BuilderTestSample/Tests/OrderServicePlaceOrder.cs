@@ -1,4 +1,5 @@
 using BuilderTestSample.Exceptions;
+using BuilderTestSample.Model;
 using BuilderTestSample.Services;
 using BuilderTestSample.Tests.TestBuilders;
 using Xunit;
@@ -13,10 +14,9 @@ namespace BuilderTestSample.Tests
 		[Fact]
 		public void ThrowsExceptionGivenOrderWithExistingId ()
 		{
-			var order = _orderBuilder
+			Order order = _orderBuilder
 							.WithTestValues ()
-							.Id (123)
-							.Build ();
+							.Id (123);
 
 			Assert.Throws<InvalidOrderException> (() => _orderService.PlaceOrder (order));
 		}
@@ -24,11 +24,10 @@ namespace BuilderTestSample.Tests
 		[Fact]
 		public void ThrowsExceptionGivenOrderWithNegativeAmount()
 		{
-			var order = _orderBuilder
+			Order order = _orderBuilder
 				.WithTestValues ()
 				.Id (0)
-				.Amount (-1)
-				.Build ();
+				.Amount (-1);
 
 			Assert.Throws<InvalidOrderException> (() => _orderService.PlaceOrder (order));
 		}
@@ -36,11 +35,10 @@ namespace BuilderTestSample.Tests
 		[Fact]
 		public void ThrowsExceptionGivenOrderWithZeroAmount ()
 		{
-			var order = _orderBuilder
+			Order order = _orderBuilder
 				.WithTestValues ()
 				.Id (0)
-				.Amount (0)
-				.Build ();
+				.Amount (0);
 
 			Assert.Throws<InvalidOrderException> (() => _orderService.PlaceOrder (order));
 		}
