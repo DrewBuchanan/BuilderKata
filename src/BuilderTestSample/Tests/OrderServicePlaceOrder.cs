@@ -53,5 +53,24 @@ namespace BuilderTestSample.Tests
 				Assert.Throws<InvalidOrderException> (() => _orderService.PlaceOrder (order));
 			}
 		}
+
+		public class OrderServiceValidateCustomerMethod : OrderServicePlaceOrder
+		{
+			private readonly CustomerBuilder _customerBuilder = new CustomerBuilder ();
+
+			[Fact]
+			public void ThrowsExceptionWhenGivenCustomerWithNegativeId()
+			{
+				var customer = _customerBuilder
+					.WithId (-1)
+					.Build ();
+
+				Order order = new OrderBuilder ()
+					.WithTestValues ()
+					.WithCustomer (customer);
+
+				Assert.Throws<InvalidCustomerException> (() => _orderService.PlaceOrder (order));
+			}
+		}
 	}
 }
