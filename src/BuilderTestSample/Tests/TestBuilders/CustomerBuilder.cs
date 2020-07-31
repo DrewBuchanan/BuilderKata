@@ -22,5 +22,10 @@ namespace BuilderTestSample.Tests.TestBuilders
 
 			return _customer;
 		}
+
+		public static implicit operator Customer(CustomerBuilder builder)
+		{
+			return builder.Build ();
+		}
 	}
 }

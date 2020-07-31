@@ -61,11 +61,10 @@ namespace BuilderTestSample.Tests
 			[Fact]
 			public void ThrowsExceptionWhenGivenCustomerWithNegativeId()
 			{
-				var customer = _customerBuilder
-					.WithId (-1)
-					.Build ();
+				Customer customer = _customerBuilder
+					.WithId (-1);
 
-				Order order = new OrderBuilder ()
+				Order order = _orderBuilder
 					.WithTestValues ()
 					.WithCustomer (customer);
 
