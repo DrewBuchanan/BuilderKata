@@ -30,6 +30,7 @@ namespace BuilderTestSample.Tests.TestBuilders
 		public OrderBuilder WithTestValues ()
 		{
 			_order.TotalAmount = 100m;
+			_order.Id = 0;
 
 			// TODO: replace next lines with a CustomerBuilder you create
 			// _order.Customer = new Customer();
