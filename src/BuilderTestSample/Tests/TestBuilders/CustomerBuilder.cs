@@ -12,6 +12,7 @@ namespace BuilderTestSample.Tests.TestBuilders
 		private Address address;
 		private string firstName;
 		private string lastName;
+		private int creditScore;
 
 		public CustomerBuilder WithId(int id)
 		{
@@ -37,6 +38,12 @@ namespace BuilderTestSample.Tests.TestBuilders
 			return this;
 		}
 
+		public CustomerBuilder WithCreditScore (int creditScore)
+		{
+			this.creditScore = creditScore;
+			return this;
+		}
+
 		public CustomerBuilder WithTestValues()
 		{
 			id = 1;
@@ -52,6 +59,7 @@ namespace BuilderTestSample.Tests.TestBuilders
 			_customer.HomeAddress = this.address;
 			_customer.FirstName = this.firstName;
 			_customer.LastName = this.lastName;
+			_customer.CreditRating = this.creditScore;
 			return _customer;
 		}
 
