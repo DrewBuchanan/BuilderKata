@@ -70,6 +70,19 @@ namespace BuilderTestSample.Tests
 
 				Assert.Throws<InvalidCustomerException> (() => _orderService.PlaceOrder (order));
 			}
+
+			[Fact]
+			public void ThrowsExceptionWhenGivenCustomerWithZeroId()
+			{
+				Customer customer = _customerBuilder
+					.WithId (0);
+
+				Order order = _orderBuilder
+					.WithTestValues ()
+					.WithCustomer (customer);
+
+				Assert.Throws<InvalidCustomerException> (() => _orderService.PlaceOrder (order));
+			}
 		}
 	}
 }
