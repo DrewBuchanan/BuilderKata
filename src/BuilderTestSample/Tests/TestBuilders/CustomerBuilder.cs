@@ -9,6 +9,7 @@ namespace BuilderTestSample.Tests.TestBuilders
 	{
 		private Customer _customer;
 		private int id;
+		private Address address;
 
 		public CustomerBuilder WithId(int id)
 		{
@@ -16,10 +17,23 @@ namespace BuilderTestSample.Tests.TestBuilders
 			return this;
 		}
 
+		public CustomerBuilder WithAddress (Address address)
+		{
+			this.address = address;
+			return this;
+		}
+
+		public CustomerBuilder WithTestValues()
+		{
+			_customer = new Customer (1);
+			_customer.HomeAddress = new Address ();
+			return this;
+		}
+
 		public Customer Build()
 		{
 			_customer = new Customer (id);
-
+			_customer.HomeAddress = address;
 			return _customer;
 		}
 
