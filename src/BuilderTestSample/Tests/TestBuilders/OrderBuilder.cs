@@ -1,4 +1,5 @@
-﻿using BuilderTestSample.Model;
+﻿using System;
+using BuilderTestSample.Model;
 
 namespace BuilderTestSample.Tests.TestBuilders
 {
@@ -12,6 +13,12 @@ namespace BuilderTestSample.Tests.TestBuilders
 		public OrderBuilder Id (int id)
 		{
 			_order.Id = id;
+			return this;
+		}
+
+		public OrderBuilder Amount (decimal amount)
+		{
+			_order.TotalAmount = amount;
 			return this;
 		}
 
