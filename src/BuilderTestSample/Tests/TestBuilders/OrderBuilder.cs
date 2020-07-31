@@ -22,6 +22,12 @@ namespace BuilderTestSample.Tests.TestBuilders
 			return this;
 		}
 
+		public Order Customer (Customer customer)
+		{
+			_order.Customer = customer;
+			return this;
+		}
+
 		public Order Build ()
 		{
 			return _order;
@@ -39,7 +45,7 @@ namespace BuilderTestSample.Tests.TestBuilders
 			return this;
 		}
 
-		public static implicit operator Order(OrderBuilder builder)
+		public static implicit operator Order (OrderBuilder builder)
 		{
 			return builder.Build ();
 		}
